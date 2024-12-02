@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { useRoutes, BrowserRouter } from "react-router-dom";
+import { NewsApiProvider } from "./Components/Context";
+import { Home } from "./Pages/Home";
+import { Nav } from "./Components/Nav";
+import { Footer } from "./Components/Footer";
+
+const RoutersApp = () => {
+  let routers = useRoutes([
+    {path: '/',element: <Home/>}
+  ])
+  return routers
+}
 
 function App() {
+  // let key = '6e9123d54a31446e82cdd97208d8c7fb'
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <NewsApiProvider>
+      <BrowserRouter>
+        <Nav></Nav>
+        <RoutersApp></RoutersApp>
+        <Footer></Footer>
+      </BrowserRouter>
+    </NewsApiProvider>
+    </>
   );
 }
 
