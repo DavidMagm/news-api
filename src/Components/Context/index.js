@@ -6,6 +6,7 @@ function NewsApiProvider({children}) {
     const [topNews, setTopNews] = React.useState([])
     const [topNewsBusiness, setTopNewsBusiness] = React.useState([])
     const [topNewsTechnology, setTopNewsTechnology] = React.useState([])
+    const [newsCategoryMenu, setNewsCategoryMenu] = React.useState([])
     React.useEffect(() => {
         fetch('https://newsapi.org/v2/top-headlines?category=general&pageSize=10&apiKey=6e9123d54a31446e82cdd97208d8c7fb')
         .then(response => response.json())
@@ -25,7 +26,7 @@ function NewsApiProvider({children}) {
     },[])
 
     return(
-        <NewsApiContext.Provider value={{topNews,topNewsBusiness,topNewsTechnology}}>
+        <NewsApiContext.Provider value={{topNews,topNewsBusiness,topNewsTechnology,newsCategoryMenu, setNewsCategoryMenu}}>
             {children}
         </NewsApiContext.Provider>
     )

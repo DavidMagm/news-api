@@ -4,10 +4,13 @@ import { NewsApiProvider } from "./Components/Context";
 import { Home } from "./Pages/Home";
 import { Nav } from "./Components/Nav";
 import { Footer } from "./Components/Footer";
+import { SearchNews } from "./Pages/SearchNews";
 
 const RoutersApp = () => {
   let routers = useRoutes([
-    {path: '/',element: <Home/>}
+    {path: '/',element: <Home/>},
+    {path: '/search-news', element: <SearchNews/>},
+    {path: '/search-news/:name', element: <SearchNews/>}
   ])
   return routers
 }

@@ -2,26 +2,5 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
     margin-top: 50px;
-}
-.section-principal-news {
-    width: 90%;
-    margin: 0 auto;
-}
-.title-news-principal h2 {
-    text-align: center;
-    font-size: xxx-large;
-}
-.title-news-principal h2 a {
-    text-decoration: none;
-    color: #000;
-}
-.title-news-principal h2 a:hover {
-    text-decoration: underline;
-    color: #927;
-}
-.container-img-principal-news {
-    display: flex;
-    justify-content: center;
 }
