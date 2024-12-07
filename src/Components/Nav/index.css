@@ -44,6 +44,7 @@
 }
 .nav-search input {
     width: 250px;
+    height: 24px;
 }
 .nav-free {
     width: 100px;
@@ -55,11 +56,15 @@
 }
 .nav-login {
     font-size: large;
+    padding-left: 8px;
+    border-left: 1px solid #100;
 }
 .nav-menu {
     font-size: large;
     position: relative;
     cursor: pointer;
+    padding-left: 8px;
+    border-left: 1px solid #100;
 }
 .nav-menu:hover .menu-news {
     opacity: 1;
@@ -97,4 +102,14 @@
 }
 .container-menu-news a {
     text-decoration: none;
+}
+.button-query-nav {
+    width: 64px;
+    height: 28px;
+    padding-left: 8px;
+    margin-left: 8px;
+    background-color: #100;
+    color: #fff;
+    border-bottom-right-radius: 8px;
+    border-top-right-radius: 8px;
 }

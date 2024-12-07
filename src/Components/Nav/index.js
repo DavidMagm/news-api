@@ -34,12 +34,29 @@ function MenuNav() {
 }
 
 function Nav() {
+
+    const {queryNewsValueInput,setQueryNewsValueInput,setQuerySearchNews} = React.useContext(NewsApiContext)
+
+    const queryNewsSearch  = async (query) => {
+        const response = await fetch(`https://newsapi.org/v2/everything?q=${query}&pageSize=20&apiKey=6e9123d54a31446e82cdd97208d8c7fb`)
+        const data = await response.json()
+        setQuerySearchNews(data.articles)
+        setQueryNewsValueInput('')
+    }
+
+    const handleChangeInput = (e) => {
+        setQueryNewsValueInput(e.target.value)
+    }
+    
     return(
         <nav className='nav-container'>
             <ul className='container-left'>
                 <Link to={'/'}><li className='nav-icon'>NEW API</li></Link>
                 <li className='nav-menu'>Menu <MenuNav></MenuNav></li>
-                <li className='nav-search'><input placeholder='Search'/></li>
+                <li className='nav-search'>
+                    <input id='query-news' placeholder='Search' value={queryNewsValueInput} onChange={handleChangeInput}/>
+                    <Link to={`/query-news/q?=${queryNewsValueInput}`}><div className='button-query-nav' onClick={() => queryNewsSearch(queryNewsValueInput)}>Search</div></Link>
+                </li>
             </ul>
             <ul className='container-rigth'>
                 <li className='nav-free'>Try for free</li>

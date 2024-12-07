@@ -7,6 +7,10 @@ function NewsApiProvider({children}) {
     const [topNewsBusiness, setTopNewsBusiness] = React.useState([])
     const [topNewsTechnology, setTopNewsTechnology] = React.useState([])
     const [newsCategoryMenu, setNewsCategoryMenu] = React.useState([])
+    const [querySearchNews, setQuerySearchNews] = React.useState([])
+    const [queryNewsValueInput,setQueryNewsValueInput] = React.useState('')
+
+
     React.useEffect(() => {
         fetch('https://newsapi.org/v2/top-headlines?category=general&pageSize=10&apiKey=6e9123d54a31446e82cdd97208d8c7fb')
         .then(response => response.json())
@@ -26,7 +30,7 @@ function NewsApiProvider({children}) {
     },[])
 
     return(
-        <NewsApiContext.Provider value={{topNews,topNewsBusiness,topNewsTechnology,newsCategoryMenu, setNewsCategoryMenu}}>
+        <NewsApiContext.Provider value={{topNews,topNewsBusiness,topNewsTechnology,newsCategoryMenu,setNewsCategoryMenu,querySearchNews,setQuerySearchNews,queryNewsValueInput,setQueryNewsValueInput}}>
             {children}
         </NewsApiContext.Provider>
     )
