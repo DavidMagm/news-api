@@ -6,6 +6,9 @@ import { Nav } from "./Components/Nav";
 import { Footer } from "./Components/Footer";
 import { SearchNews } from "./Pages/SearchNews";
 import { NewsQueryGeneral } from "./Components/NewsQueryGeneral";
+import { Login } from "./Pages/Login";
+
+
 
 const RoutersApp = () => {
   let routers = useRoutes([
@@ -13,7 +16,8 @@ const RoutersApp = () => {
     {path: '/search-news', element: <SearchNews/>},
     {path: '/search-news/:category', element: <SearchNews/>},
     {path: '/query-news/', element: <NewsQueryGeneral/>},
-    {path: '/query-news/:query', element: <NewsQueryGeneral/>}
+    {path: '/query-news/:query', element: <NewsQueryGeneral/>},
+    {path: '/log-in', element: <Login></Login>},
   ])
   return routers
 }

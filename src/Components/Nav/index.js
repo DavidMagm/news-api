@@ -41,7 +41,7 @@ function MenuNav() {
 
 function Nav() {
 
-    const {queryNewsValueInput,setQueryNewsValueInput,setQuerySearchNews} = React.useContext(NewsApiContext)
+    const {queryNewsValueInput,setQueryNewsValueInput,setQuerySearchNews,login,setLogin} = React.useContext(NewsApiContext)
 
     const queryNewsSearch  = async (query) => {
         const response = await fetch(`https://newsapi.org/v2/everything?q=${query}&pageSize=20&apiKey=6e9123d54a31446e82cdd97208d8c7fb`)
@@ -54,19 +54,23 @@ function Nav() {
         setQueryNewsValueInput(e.target.value)
     }
     
+        const noneDisplay = {
+            display: 'none'
+        }
+    
     return(
         <nav className='nav-container'>
             <ul className='container-left'>
-                <Link to={'/'}><li className='nav-icon'>NEW API</li></Link>
-                <li className='nav-menu'>Menu <MenuNav></MenuNav></li>
+                <Link to={'/'}><li onClick={() => setLogin(false)} className='nav-icon'>NEW API</li></Link>
+                <li style={ login ? noneDisplay : {display: 'flex'}} className='nav-menu'>Menu <MenuNav></MenuNav></li>
                 <li className='nav-search'>
-                    <input id='query-news' placeholder='Search' value={queryNewsValueInput} onChange={handleChangeInput}/>
-                    <Link to={`/query-news/q?=${queryNewsValueInput}`}><div className='button-query-nav' onClick={() => queryNewsSearch(queryNewsValueInput)}>Search</div></Link>
+                    <input style={ login ? noneDisplay : {display: 'flex'}} id='query-news' placeholder='Search' value={queryNewsValueInput} onChange={handleChangeInput}/>
+                    <Link style={ login ? noneDisplay : {display: 'flex'}} to={`/query-news/q?=${queryNewsValueInput}`}><div className='button-query-nav' onClick={() => queryNewsSearch(queryNewsValueInput)}>Search</div></Link>
                 </li>
             </ul>
             <ul className='container-rigth'>
                 <li className='nav-free'>Try for free</li>
-                <li className='nav-login'>Log in</li>
+                <Link to={'/log-in'}><li onClick={() => setLogin(true)} className='nav-login'>Log in</li></Link>
             </ul>
         </nav> 
     )

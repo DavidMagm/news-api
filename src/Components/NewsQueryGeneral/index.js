@@ -3,12 +3,22 @@ import { NewsApiContext } from "../Context"
 import './index.css'
 
 function NewsQueryGeneral() {
-    const {querySearchNews} = React.useContext(NewsApiContext)
+    const {querySearchNews, loading, error} = React.useContext(NewsApiContext)
     const currentPath = window.location.href
     let titleQueryPath = currentPath.substring(currentPath.lastIndexOf('=') + 1)
 
     const renderQueryNewsLength = () => {
-        if(querySearchNews.length === 0) {
+        if(loading) {
+            return (
+                <p>Estamos cargando</p>
+            )
+        }
+        if(error) {
+            return (
+                <p>Error desperate</p>
+            )
+        }
+        if(loading && querySearchNews.length === 0) {
             return(
                 <div className="container-title-not-found"><h2>Not found Result</h2></div>
             )

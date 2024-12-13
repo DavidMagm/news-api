@@ -11,6 +11,7 @@ function NewsApiProvider({children}) {
     const [loading, setLoading] = React.useState(true)
     const [error, setError] = React.useState(false)
     const [queryNewsValueInput,setQueryNewsValueInput] = React.useState('')
+    const [login, setLogin] = React.useState(false)
 
 
     React.useEffect(() => {
@@ -32,7 +33,7 @@ function NewsApiProvider({children}) {
     },[])
 
     return(
-        <NewsApiContext.Provider value={{topNews,topNewsBusiness,topNewsTechnology,newsCategoryMenu,setNewsCategoryMenu,querySearchNews,setQuerySearchNews,queryNewsValueInput,setQueryNewsValueInput,loading,setLoading,error,setError}}>
+        <NewsApiContext.Provider value={{topNews,topNewsBusiness,topNewsTechnology,newsCategoryMenu,setNewsCategoryMenu,querySearchNews,setQuerySearchNews,queryNewsValueInput,setQueryNewsValueInput,loading,setLoading,error,setError,login,setLogin}}>
             {children}
         </NewsApiContext.Provider>
     )

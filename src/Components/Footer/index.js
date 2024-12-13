@@ -1,8 +1,14 @@
+import React from 'react';
+import { NewsApiContext } from '../Context';
 import './index.css'
 
 function Footer() {
+    const noneDisplay = {
+        display: 'none'
+    }
+    const {login} = React.useContext(NewsApiContext)
     return(
-        <footer className="footer-principal">
+        <footer style={ login ? noneDisplay : {display: 'block'}} className="footer-principal">
             <div className="footer-info">
                 <div className="footer-subcribe">
                     <ul className='list-footer'>
