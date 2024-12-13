@@ -7,12 +7,18 @@ import './index.css'
 
 function MenuNav() {
 
-    const {setNewsCategoryMenu} = React.useContext(NewsApiContext)
+    const {setNewsCategoryMenu,setLoading,setError} = React.useContext(NewsApiContext)
 
     const newsSearchBusinnes  = async (category) => {
-        const response = await fetch(`https://newsapi.org/v2/top-headlines?category=${category}&apikey=6e9123d54a31446e82cdd97208d8c7fb`)
-        const data = await response.json()
-        setNewsCategoryMenu(data.articles)
+        try {
+            const response = await fetch(`https://newsapi.org/v2/top-headlines?category=${category}&apikey=6e9123d54a31446e82cdd97208d8c7fb`)
+            const data = await response.json()
+            setNewsCategoryMenu(data.articles)
+            setLoading(false)
+        } catch(error) {
+            setLoading(false)
+            setError(true)
+        }
     }
 
 

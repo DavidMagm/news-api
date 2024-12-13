@@ -8,6 +8,8 @@ function NewsApiProvider({children}) {
     const [topNewsTechnology, setTopNewsTechnology] = React.useState([])
     const [newsCategoryMenu, setNewsCategoryMenu] = React.useState([])
     const [querySearchNews, setQuerySearchNews] = React.useState([])
+    const [loading, setLoading] = React.useState(true)
+    const [error, setError] = React.useState(false)
     const [queryNewsValueInput,setQueryNewsValueInput] = React.useState('')
 
 
@@ -30,7 +32,7 @@ function NewsApiProvider({children}) {
     },[])
 
     return(
-        <NewsApiContext.Provider value={{topNews,topNewsBusiness,topNewsTechnology,newsCategoryMenu,setNewsCategoryMenu,querySearchNews,setQuerySearchNews,queryNewsValueInput,setQueryNewsValueInput}}>
+        <NewsApiContext.Provider value={{topNews,topNewsBusiness,topNewsTechnology,newsCategoryMenu,setNewsCategoryMenu,querySearchNews,setQuerySearchNews,queryNewsValueInput,setQueryNewsValueInput,loading,setLoading,error,setError}}>
             {children}
         </NewsApiContext.Provider>
     )
