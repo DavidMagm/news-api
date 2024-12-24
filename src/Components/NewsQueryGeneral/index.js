@@ -18,7 +18,7 @@ function NewsQueryGeneral() {
                 <p>Error desperate</p>
             )
         }
-        if(loading && querySearchNews.length === 0) {
+        if(!loading && querySearchNews.length === 0) {
             return(
                 <div className="container-title-not-found"><h2>Not found Result</h2></div>
             )

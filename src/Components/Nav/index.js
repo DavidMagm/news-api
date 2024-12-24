@@ -7,17 +7,15 @@ import './index.css'
 
 function MenuNav() {
 
-    const {setNewsCategoryMenu,setLoading,setError} = React.useContext(NewsApiContext)
+    const {setNewsCategoryMenu} = React.useContext(NewsApiContext)
 
     const newsSearchBusinnes  = async (category) => {
         try {
             const response = await fetch(`https://newsapi.org/v2/top-headlines?category=${category}&apikey=6e9123d54a31446e82cdd97208d8c7fb`)
             const data = await response.json()
             setNewsCategoryMenu(data.articles)
-            setLoading(false)
         } catch(error) {
-            setLoading(false)
-            setError(true)
+            
         }
     }
 
@@ -41,13 +39,20 @@ function MenuNav() {
 
 function Nav() {
 
-    const {queryNewsValueInput,setQueryNewsValueInput,setQuerySearchNews,login,setLogin} = React.useContext(NewsApiContext)
+    const {queryNewsValueInput,setQueryNewsValueInput,setQuerySearchNews,querySearchNews,login,setLogin,setLoading,setError} = React.useContext(NewsApiContext)
 
     const queryNewsSearch  = async (query) => {
-        const response = await fetch(`https://newsapi.org/v2/everything?q=${query}&pageSize=20&apiKey=6e9123d54a31446e82cdd97208d8c7fb`)
-        const data = await response.json()
-        setQuerySearchNews(data.articles)
-        setQueryNewsValueInput('')
+        try {
+            const response = await fetch(`https://newsapi.org/v2/everything?q=${query}&pageSize=20&apiKey=6e9123d54a31446e82cdd97208d8c7fb`)
+            const data = await response.json()
+            setQuerySearchNews(data.articles)
+            console.log(querySearchNews)
+            setQueryNewsValueInput('')
+            setLoading(false)
+        } catch(error) {
+            setLoading(false)
+            setError(true)
+        }
     }
 
     const handleChangeInput = (e) => {

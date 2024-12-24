@@ -16,6 +16,10 @@
     align-items: center;
     padding-right: 24px;
 }
+.container-rigth a {
+    text-decoration: none;
+    color: #000;
+}
 .container-left {
     display: flex;
     gap: 16px;
