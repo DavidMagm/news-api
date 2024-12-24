@@ -1,0 +1,26 @@
+.card-data-user {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 400px;
+}
+.data-input-login {
+    height: 24px;
+    border-radius: 8px;
+}
+.button-login {
+    width: 100%;
+    margin-top: 12px;
+    display: flex;
+    text-decoration: none;
+    justify-content: center;
+}
+.button-login button {
+    width: 80%;
+    height: 42px;
+    border-radius: 8px;
+    background-color: #000;
+    color: aliceblue;
+    font-size: large;
+    cursor: pointer;
+}
