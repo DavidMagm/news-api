@@ -11,3 +11,25 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.nav-menu:hover .menu-news {
+  opacity: 1;
+  display: flex;
+  transition: display 500ms;
+  transition-delay: 300ms;
+}
+.menu-news {
+  background-color: grey;
+  width: 600px;
+  height: 150px;
+  position: absolute;
+  display: none;
+  opacity: 0;
+  top: 38px;
+  left: 0;
+  transition: display 500ms;
+  transition-delay: 300ms;
+}
+.menu-news:hover {
+  display: block;
+}

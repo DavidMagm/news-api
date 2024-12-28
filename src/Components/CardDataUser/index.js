@@ -11,13 +11,13 @@ function CardDataUser({router, nameButton}) {
         }
     }
     return (
-        <div className="card-data-user">
+        <form className="card-data-user">
             <label htmlFor="email-user">Email</label>
             <input className='data-input-login' id="email-user" type="text"/>
             <label htmlFor="password-user">Password</label>
             <input className='data-input-login' id="password-user" type="password"/>
             <Link className='button-login' to={router}><button onClick={menuRender}>{nameButton}</button></Link>
-        </div>
+        </form>
     )
 }
 
