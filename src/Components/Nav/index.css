@@ -77,6 +77,23 @@
     margin-left: 8px;
     background-color: #100;
     color: #fff;
+    cursor: pointer;
     border-bottom-right-radius: 8px;
     border-top-right-radius: 8px;
+}
+.button-query-nav-disabled {
+    width: 64px;
+    height: 28px;
+    padding-left: 8px;
+    margin-left: 8px;
+    background-color: grey;
+    color: #fff;
+    border-bottom-right-radius: 8px;
+    border-top-right-radius: 8px;
+}
+.hidden {
+    display: none;
+}
+.visible {
+    display: flex;
 }

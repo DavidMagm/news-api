@@ -7,11 +7,13 @@ function NewsAdditional({dataNewsAdditional}) {
     let additionalNewsSection = dataNewsAdditional.slice(3,6)
     return(
         <section className="section-additional-top-head">
-            {additionalNewsSection.map((news, index) => (
+            {additionalNewsSection
+            .filter(news => news.title !== '[Removed]')
+            .map((news, index) => (
                 <div key={index} className="card-news-additional">
                     <div className="container-title-news-additional">
-                        <p><a href={news.url} rel='noreferrer' target="_blank">{news.title === '[Removed]' ? '' : news.title}</a></p>
-                        <span>{news.source.name === '[Removed]' ? '' : news.source.name}</span>
+                        <p><a href={news.url} rel='noreferrer' target="_blank">{news.title}</a></p>
+                        <span>{news.source.name}</span>
                     </div>
                     <div className="container-img-news-additional">
                         <a href={news.url} rel='noreferrer' target="_blank">

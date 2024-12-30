@@ -8,7 +8,8 @@ function SectionNews({dataNews}) {
     //console.log(principalNews)
     return(
         <section className="section-news-top-head">
-            {principalNews.map((news, index) => (
+            {principalNews
+            .map((news, index) => (
             <div key={index} className="card-news">
                 <div className="card-container-img" rel="noreferrer" target="_blank">
                     <a href={news.url}>
@@ -17,8 +18,8 @@ function SectionNews({dataNews}) {
                 </div>
                 <div className="card-container-title">
                     <div className="card-title">
-                        <span>{news.source.name}</span>
-                        <p><a href={news.url} rel="noreferrer" target="_blank">{news.title}</a></p>
+                        <span>{news.source.name === '[Removed]' ? '': news.source.name}</span>
+                        <p><a href={news.url} rel="noreferrer" target="_blank">{news.title === '[Removed]' ? '' : news.title}</a></p>
                     </div>
                 </div>
             </div>

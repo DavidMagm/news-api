@@ -8,7 +8,7 @@ function NewsApiProvider({children}) {
     const [topNewsTechnology, setTopNewsTechnology] = React.useState([])
     const [newsCategoryMenu, setNewsCategoryMenu] = React.useState([])
     const [querySearchNews, setQuerySearchNews] = React.useState([])
-    const [loading, setLoading] = React.useState(true)
+    const [loading, setLoading] = React.useState(false)
     const [error, setError] = React.useState(false)
     const [queryNewsValueInput,setQueryNewsValueInput] = React.useState('')
     const [login, setLogin] = React.useState(false)
